@@ -114,3 +114,18 @@ plot_tree(regressor, feature_names=features.columns,
           filled=True, rounded=True, fontsize=6)
 
 plt.show()
+
+# Create a new DataFrame for the test data
+test_data = X_test.copy()
+test_data['hospital_outcome'] = y_test
+
+# Group the test data by age and count the number of deaths for each age group
+age_death_counts = test_data.groupby('age_years')['hospital_outcome'].sum()
+
+# Plot the age vs. death counts
+plt.figure(figsize=(10, 6))
+plt.bar(age_death_counts.index, age_death_counts.values, width=0.5)
+plt.xlabel('Age (years)')
+plt.ylabel('Number of Deaths')
+plt.title('Age vs. Number of Deaths')
+plt.show()
