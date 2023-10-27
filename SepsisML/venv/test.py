@@ -80,7 +80,7 @@ episode_counts = X_test['episode_number'].values
 # Create a dictionary to count the number of deaths for each episode count in the test data
 deaths_by_episode_test = {}
 for episode_count, outcome in zip(episode_counts, y_test):
-    if outcome < 0.5:  # Assuming 0 represents "dead"
+    if outcome < 0.5:
         if episode_count in deaths_by_episode_test:
             deaths_by_episode_test[episode_count] += 1
         else:
@@ -97,7 +97,7 @@ episode_counts = X_train['episode_number'].values
 # Create a dictionary to count the number of deaths for each episode count in the training data
 deaths_by_episode_train = {}
 for episode_count, outcome in zip(episode_counts, y_train):
-    if outcome < 0.5:  # Assuming 0 represents "dead"
+    if outcome < 0.5:
         if episode_count in deaths_by_episode_train:
             deaths_by_episode_train[episode_count] += 1
         else:
